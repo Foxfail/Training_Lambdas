@@ -41,7 +41,7 @@ public class Main {
     }
 
     private static void acceptFunctionalWithReturnValue(FunctionalWithReturnValue f) {
-        // в реализацию метода function1 отправляем тестовую строку
+        // в реализацию метода function2 отправляем тестовую строку
         Integer i = f.function2("testString3");
         System.out.println(i.toString());
     }
