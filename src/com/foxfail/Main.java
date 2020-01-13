@@ -2,10 +2,12 @@ package com.foxfail;
 
 import com.foxfail.interfaces.Functional;
 import com.foxfail.interfaces.FunctionalWithReturnValue;
+import org.jetbrains.annotations.NotNull;
 
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println("-== Функциональный интерфейс без возвращаемого значения ==-");
         // Реализация метода функционального интерфейса совпадает с методом println
         acceptFunctional(System.out::println);
 
@@ -16,8 +18,7 @@ public class Main {
         });
 
 
-
-        // Реализуем метод функционального интерфейса который возвращает Integer
+        System.out.println("\n-== Функциональный интерфейс, метод которого возвращает Integer ==-");
         // Использую излишнюю разметку для наглядности
         acceptFunctionalWithReturnValue((String s) -> {
             if (s != null) {
@@ -32,17 +33,17 @@ public class Main {
 
         // Без проверки на null используя method reference
         acceptFunctionalWithReturnValue(String::length);
-
     }
 
-    private static void acceptFunctional(Functional f) {
+    private static void acceptFunctional(@NotNull Functional f) {
         // в реализацию метода function1 отправляем тестовую строку
         f.function1("testString");
     }
 
-    private static void acceptFunctionalWithReturnValue(FunctionalWithReturnValue f) {
+    private static void acceptFunctionalWithReturnValue(@NotNull FunctionalWithReturnValue f) {
         // в реализацию метода function2 отправляем тестовую строку
         Integer i = f.function2("testString3");
         System.out.println(i.toString());
     }
+
 }
